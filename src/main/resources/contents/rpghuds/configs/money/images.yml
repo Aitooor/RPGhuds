@@ -1,6 +1,10 @@
 info:
   namespace: rpghuds
 font_images:
+  stars_icon:
+    suggest_in_command: false
+    path: money/stars_icon
+    y_position: -16
   money_icon:
     suggest_in_command: false
     path: money/money_icon

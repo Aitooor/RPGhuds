@@ -9,6 +9,15 @@ money:
     - world
     - world_nether
     - world_the_end
+stars:
+  enabled: true
+  offset: 91
+  # All money playerholders: https://github.com/PlaceholderAPI/PlaceholderAPI/wiki/Placeholders#vault
+  papi_placeholder: "%playerpoints_points_shorthand%"
+  worlds:
+    - world
+    - world_nether
+    - world_the_end
 compass:
   enabled: true
   offset: -9

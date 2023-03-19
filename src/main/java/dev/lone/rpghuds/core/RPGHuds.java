@@ -4,10 +4,7 @@ import dev.lone.itemsadder.api.FontImages.PlayerHudsHolderWrapper;
 import dev.lone.itemsadder.api.ItemsAdder;
 import dev.lone.rpghuds.Main;
 import dev.lone.rpghuds.core.data.*;
-import dev.lone.rpghuds.core.settings.ArrowTargetSettings;
-import dev.lone.rpghuds.core.settings.CompassSettings;
-import dev.lone.rpghuds.core.settings.MoneySettings;
-import dev.lone.rpghuds.core.settings.QuiverSettings;
+import dev.lone.rpghuds.core.settings.*;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -42,7 +39,7 @@ public class RPGHuds
     private boolean allPlayersInitialized;
 
     //TODO: recode this shit. Very dirty
-    private final List<String> hudsNames = Arrays.asList("rpghuds:money", "rpghuds:compass", "rpghuds:quiver", "rpghuds:arrow_target");
+    private final List<String> hudsNames = Arrays.asList("rpghuds:money", "rpghuds:stars", "rpghuds:compass", "rpghuds:quiver", "rpghuds:arrow_target");
 
 
     public RPGHuds(Main plugin)
@@ -136,6 +133,40 @@ public class RPGHuds
                                 "rpghuds:money_char_arrow_down",
                                 Main.settings.moneyOffset,
                                 Main.settings.moneyWorlds
+                        )
+                ), false);
+            }
+
+            //TODO: recode this shit. Very dirty
+            if (Main.settings.starsEnabled)
+            {
+                playerData.registerHud(new StarsHud(
+                        Main.settings.starsyPapi,
+                        playerData.getHolder(),
+                        new StarsSettings(
+                                "rpghuds:stars",
+                                "rpghuds:stars_icon",
+                                "rpghuds:money_digit_0",
+                                "rpghuds:money_digit_1",
+                                "rpghuds:money_digit_2",
+                                "rpghuds:money_digit_3",
+                                "rpghuds:money_digit_4",
+                                "rpghuds:money_digit_5",
+                                "rpghuds:money_digit_6",
+                                "rpghuds:money_digit_7",
+                                "rpghuds:money_digit_8",
+                                "rpghuds:money_digit_9",
+                                "rpghuds:money_char_unknown",
+                                "rpghuds:money_char_k",
+                                "rpghuds:money_char_m",
+                                "rpghuds:money_char_b",
+                                "rpghuds:money_char_t",
+                                "rpghuds:money_char_dot",
+                                "rpghuds:money_char_comma",
+                                "rpghuds:money_char_arrow_up",
+                                "rpghuds:money_char_arrow_down",
+                                Main.settings.starsOffset,
+                                Main.settings.starsWorlds
                         )
                 ), false);
             }

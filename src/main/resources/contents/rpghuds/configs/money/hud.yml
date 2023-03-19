@@ -7,3 +7,9 @@ huds:
       auto: false
       underwater: false
     type: CUSTOM
+  stars:
+    enabled: true
+    show:
+      auto: false
+      underwater: false
+    type: CUSTOM
