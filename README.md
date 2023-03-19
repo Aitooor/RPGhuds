@@ -9,7 +9,7 @@
 #### DEPENDS
 - ItemsAdder
 - PlaceholderAPI
-- Vault
+- Vault (Need economy plugin)
 
 ![](https://i.imgur.com/9f5Wnk2.gif)
 ![](https://i.imgur.com/1QDv4Ga.gif)
@@ -21,6 +21,6 @@
 - `Done`
 
 #### Build
-- `Java 17`<br>
+- `Setup Java 17`<br>
 - `mvn clean package`<br>
 - `Find it at /target/RPGhuds-1.2.0.jar`
