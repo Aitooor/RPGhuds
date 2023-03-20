@@ -39,7 +39,7 @@ public class RPGHuds
     private boolean allPlayersInitialized;
 
     //TODO: recode this shit. Very dirty
-    private final List<String> hudsNames = Arrays.asList("rpghuds:money", "rpghuds:stars", "rpghuds:compass", "rpghuds:quiver", "rpghuds:arrow_target");
+    private final List<String> hudsNames = Arrays.asList("rpghuds:money", "rpghuds:stars", "rpghuds:bank", "rpghuds:compass", "rpghuds:quiver", "rpghuds:arrow_target");
 
 
     public RPGHuds(Main plugin)
@@ -141,7 +141,7 @@ public class RPGHuds
             if (Main.settings.starsEnabled)
             {
                 playerData.registerHud(new StarsHud(
-                        Main.settings.starsyPapi,
+                        Main.settings.starsPapi,
                         playerData.getHolder(),
                         new StarsSettings(
                                 "rpghuds:stars",
@@ -167,6 +167,40 @@ public class RPGHuds
                                 "rpghuds:stars_char_arrow_down",
                                 Main.settings.starsOffset,
                                 Main.settings.starsWorlds
+                        )
+                ), false);
+            }
+
+            //TODO: recode this shit. Very dirty
+            if (Main.settings.bankEnabled)
+            {
+                playerData.registerHud(new BankHud(
+                        Main.settings.bankPapi,
+                        playerData.getHolder(),
+                        new BankSettings(
+                                "rpghuds:bank",
+                                "rpghuds:bank_icon",
+                                "rpghuds:bank_digit_0",
+                                "rpghuds:bank_digit_1",
+                                "rpghuds:bank_digit_2",
+                                "rpghuds:bank_digit_3",
+                                "rpghuds:bank_digit_4",
+                                "rpghuds:bank_digit_5",
+                                "rpghuds:bank_digit_6",
+                                "rpghuds:bank_digit_7",
+                                "rpghuds:bank_digit_8",
+                                "rpghuds:bank_digit_9",
+                                "rpghuds:bank_char_unknown",
+                                "rpghuds:bank_char_k",
+                                "rpghuds:bank_char_m",
+                                "rpghuds:bank_char_b",
+                                "rpghuds:bank_char_t",
+                                "rpghuds:bank_char_dot",
+                                "rpghuds:bank_char_comma",
+                                "rpghuds:bank_char_arrow_up",
+                                "rpghuds:bank_char_arrow_down",
+                                Main.settings.bankOffset,
+                                Main.settings.bankWorlds
                         )
                 ), false);
             }

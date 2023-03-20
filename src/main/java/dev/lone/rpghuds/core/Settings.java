@@ -14,13 +14,17 @@ public class Settings
     public boolean moneyEnabled;
     public String moneyPapi;
     public boolean starsEnabled;
-    public String starsyPapi;
+    public String starsPapi;
+    public boolean bankEnabled;
+    public String bankPapi;
     public long refreshIntervalTicks;
     public long refreshHighFrequencyIntervalTicks;
     public int moneyOffset;
     public HashSet<String> moneyWorlds;
     public int starsOffset;
     public HashSet<String> starsWorlds;
+    public int bankOffset;
+    public HashSet<String> bankWorlds;
 
     public boolean compassEnabled;
     public int compassOffset;
@@ -53,9 +57,14 @@ public class Settings
         this.moneyWorlds = new HashSet<>(config.getStringList("money.worlds"));
 
         this.starsEnabled = config.getBoolean("stars.enabled", true);
-        this.starsyPapi = config.getString("stars.papi_placeholder", "%playerpoints_points_shorthand%");
+        this.starsPapi = config.getString("stars.papi_placeholder", "%playerpoints_points_shorthand%");
         this.starsOffset = config.getInt("stars.offset", 88);
         this.starsWorlds = new HashSet<>(config.getStringList("stars.worlds"));
+
+        this.bankEnabled = config.getBoolean("bank.enabled", true);
+        this.bankPapi = config.getString("bank.papi_placeholder", "%royaleeconomy_balance_bank%");
+        this.bankOffset = config.getInt("bank.offset", 88);
+        this.bankWorlds = new HashSet<>(config.getStringList("bank.worlds"));
 
         this.compassEnabled = config.getBoolean("compass.enabled", true);
         this.compassOffset = config.getInt("compass.offset", 6);

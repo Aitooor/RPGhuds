@@ -18,6 +18,15 @@ stars:
     - world
     - world_nether
     - world_the_end
+bank:
+  enabled: true
+  offset: 91
+  # All money playerholders: https://github.com/PlaceholderAPI/PlaceholderAPI/wiki/Placeholders#vault
+  papi_placeholder: "%royaleeconomy_balance_bank%"
+  worlds:
+    - world
+    - world_nether
+    - world_the_end
 compass:
   enabled: true
   offset: -9

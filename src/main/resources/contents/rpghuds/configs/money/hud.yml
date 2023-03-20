@@ -13,3 +13,9 @@ huds:
       auto: false
       underwater: false
     type: CUSTOM
+  bank:
+    enabled: true
+    show:
+      auto: false
+      underwater: false
+    type: CUSTOM
