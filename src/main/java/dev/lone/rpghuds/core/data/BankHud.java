@@ -27,7 +27,7 @@ public class BankHud extends PAPIHud<BankSettings>
     @Nullable
     private FontImageWrapper currentArrow;
 
-    private APIHandler apiHandler = RoyaleEconomy.apiHandler;
+    private final APIHandler apiHandler = RoyaleEconomy.apiHandler;
 
     public BankHud(String placeholder,
                    PlayerHudsHolderWrapper holder,
@@ -36,7 +36,7 @@ public class BankHud extends PAPIHud<BankSettings>
         super(placeholder, holder, settings);
         this.player = holder.getPlayer();
 
-        this.prevBalance = apiHandler.balance.getBalance(player.getUniqueId().toString());
+        this.prevBalance = apiHandler.balance.getBankBalance(player.getUniqueId().toString());
 
         hud.setVisible(true);
     }
@@ -61,7 +61,7 @@ public class BankHud extends PAPIHud<BankSettings>
 
         if(apiHandler != null)
         {
-            double balance = apiHandler.balance.getBalance(player.getUniqueId().toString());
+            double balance = apiHandler.balance.getBankBalance(player.getUniqueId().toString());
             if(balance != prevBalance)
             {
                 if (balance > prevBalance)
