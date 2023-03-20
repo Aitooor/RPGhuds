@@ -5,6 +5,7 @@ import dev.lone.itemsadder.api.FontImages.PlayerHudsHolderWrapper;
 import dev.lone.rpghuds.Main;
 import dev.lone.rpghuds.core.settings.StarsSettings;
 import me.clip.placeholderapi.PlaceholderAPI;
+import org.black_ixx.playerpoints.PlayerPointsAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -25,6 +26,8 @@ public class StarsHud extends PAPIHud<StarsSettings>
     @Nullable
     private FontImageWrapper currentArrow;
 
+    private PlayerPointsAPI ppAPI = Main.inst().getPpAPI();
+
     public StarsHud(String placeholder,
                     PlayerHudsHolderWrapper holder,
                     StarsSettings settings) throws NullPointerException
@@ -32,7 +35,7 @@ public class StarsHud extends PAPIHud<StarsSettings>
         super(placeholder, holder, settings);
         this.player = holder.getPlayer();
 
-        this.prevBalance = Main.econ.getBalance(player);
+        this.prevBalance = ppAPI.look(player.getUniqueId());
 
         hud.setVisible(true);
     }
@@ -55,9 +58,9 @@ public class StarsHud extends PAPIHud<StarsSettings>
             return RenderAction.HIDDEN;
         }
 
-        if(Main.econ != null)
+        if(ppAPI != null)
         {
-            double balance = Main.econ.getBalance(player);
+            double balance = ppAPI.look(player.getUniqueId());
             if(balance != prevBalance)
             {
                 if (balance > prevBalance)

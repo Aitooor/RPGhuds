@@ -5,6 +5,8 @@ import dev.lone.rpghuds.core.RPGHuds;
 import dev.lone.rpghuds.core.Settings;
 import net.milkbowl.vault.economy.Economy;
 import org.apache.commons.io.FileUtils;
+import org.black_ixx.playerpoints.PlayerPoints;
+import org.black_ixx.playerpoints.PlayerPointsAPI;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -35,6 +37,8 @@ public final class Main extends JavaPlugin implements Listener
     @Nullable
     public static Economy econ = null;
 
+    private PlayerPointsAPI ppAPI;
+
     public static Main inst()
     {
         return instance;
@@ -46,6 +50,7 @@ public final class Main extends JavaPlugin implements Listener
         instance = this;
 
         initVaultEconomy();
+        initPlayerPoints();
         initConfig();
 
         rpgHuds = new RPGHuds(this);
@@ -107,11 +112,27 @@ public final class Main extends JavaPlugin implements Listener
             econ = rsp.getProvider();
     }
 
+    private void initPlayerPoints()
+    {
+        if (this.getServer().getPluginManager().isPluginEnabled("PlayerPoints")) {
+            this.ppAPI = PlayerPoints.getInstance().getAPI();
+        }
+    }
+
     public void reloadPlugin()
     {
         rpgHuds.cleanup();
         initVaultEconomy();
+        initPlayerPoints();
         initConfig();
         rpgHuds.initAllPlayers();
+    }
+
+    public PlayerPointsAPI getPpAPI() {
+        return ppAPI;
+    }
+
+    public void setPpAPI(PlayerPointsAPI ppAPI) {
+        this.ppAPI = ppAPI;
     }
 }
